@@ -15,11 +15,15 @@ _See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite
    data.
 
 # Getting Started
-1. `$ git clone https://github.com/rampatra/wedding-website.git` - clone this project to your computer
-2. `$ cd wedding-website` - go inside the project directory
-3. `$ npm install` - install dependencies
-4. `$ gulp` - compile sass to css, minify js, etc.
-5. That's it, open `index.html` file on your browser by just double-clicking on it.
+1. LINUX - Install NVM (Node Version Manager) from [here](https://github.com/nvm-sh/nvm)
+2. WINDOWS - Install NVM (Node Version Manager) from [here](https://github.com/coreybutler/nvm-windows/releases)
+3. `$ git clone https://github.com/joaobortotcadore/wedding-ll.git` - clone this project to your computer
+4. `$ cd wedding-ll` - go inside the project directory
+5. `$ nvm use lts` - use the latest LTS version of Node.js
+6. `$ npm install -g gulp-cli` - install gulp globally
+7. `$ npm install` - install dependencies
+8. `$ gulp` - compile sass to css, min
+9. That's it, open `index.html` file on your browser by just double-clicking on it.
 
 # Documentation
 I have written a 
