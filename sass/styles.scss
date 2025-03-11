@@ -746,42 +746,39 @@ Embed video
   color: #ffffff;
 }
 
-/* ==========================================================================
-Google map
+/* ==========================================================================  
+   Google Map Responsivo até a borda  
 ========================================================================== */
-#map-canvas {
-  height: 500px;
-  width: 100%;
-}
-#map-content-wrapper {
+
+.map-container {
   position: relative;
-  margin-top: -502px;
-  margin-bottom: 150px;
+  width: 100vw; /* Ocupa toda a largura da viewport */
+  max-width: 100%; /* Evita overflow lateral */
+  height: 400px; /* Mantém altura fixa */
+  margin: 0 auto; /* Centraliza */
+  overflow: hidden;
 }
-#map-content {
-  margin-top: 40px;
-  padding: 50px 60px;
-  background: #fff;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
-#btn-show-content {
-  padding: 20px;
-  background: #fff;
-  cursor: pointer;
-  display: inline-block;
-  -webkit-transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
-  transition: opacity 0.5s, visibility 0.6s, margin-top 0.5s;
+
+/* Ajusta a altura para telas menores */
+@media screen and (max-width: 768px) {
+  .map-container {
+      height: 300px;
+  }
 }
-.toggle-map-content {
-  opacity: 0;
-  visibility: hidden;
-}
-.pointer-events-none {
-  pointer-events: none;
-}
-.pointer-events-auto {
-  pointer-events: auto;
+
+@media screen and (max-width: 480px) {
+  .map-container {
+      height: 250px;
+  }
 }
 
 /* ==========================================================================
