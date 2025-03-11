@@ -19,11 +19,17 @@ _See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite
 2. WINDOWS - Install NVM (Node Version Manager) from [here](https://github.com/coreybutler/nvm-windows/releases)
 3. `$ git clone https://github.com/joaobortotcadore/wedding-ll.git` - clone this project to your computer
 4. `$ cd wedding-ll` - go inside the project directory
-5. `$ nvm use lts` - use the latest LTS version of Node.js
-6. `$ npm install -g gulp-cli` - install gulp globally
-7. `$ npm install` - install dependencies
-8. `$ gulp` - compile sass to css, min
-9. That's it, open `index.html` file on your browser by just double-clicking on it.
+5. `$ nvm install lts` - install the latest LTS version of Node.js
+6. `$ nvm use lts` - use the latest LTS version of Node.js
+   - For WINDOWS, you may need to run the following commands in PowerShell as an Administrator:
+      - `$ Get-ExecutionPolicy -List`
+      - `$ Set-ExecutionPolicy Unrestricted -Scope CurrentUser`
+      - `$ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
+      - `$ Get-ExecutionPolicy`
+7. `$ npm install -g gulp-cli` - install gulp globally
+8. `$ npm install` - install dependencies
+9. `$ gulp` - compile sass to css, min
+10. That's it, open `index.html` file on your browser by just double-clicking on it.
 
 # Documentation
 I have written a 
