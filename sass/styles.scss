@@ -716,6 +716,41 @@ Engagement Pics
   }
 }
 
+#eng-pics .gallery-columns {
+  column-count: 5;         // 5 colunas no desktop
+  column-gap: 10px;
+  padding: 0;
+}
+
+@media (max-width: 992px) {
+  #eng-pics .gallery-columns {
+    column-count: 3;       // 3 colunas no tablet
+  }
+}
+
+@media (max-width: 576px) {
+  #eng-pics .gallery-columns {
+    column-count: 2;       // 2 colunas no celular
+  }
+}
+
+#eng-pics .gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#eng-pics .img-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#eng-pics .img-wrap img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
 /* ==========================================================================
 Embed video
 ========================================================================== */
