@@ -551,23 +551,17 @@ Features-stack
 /* ==========================================================================
 .events
 ========================================================================== */
-.events {
-  .leftcol {
-    padding-right: 100px;
-    border-right: solid 1px $keyline-color;
-  }
-  .rightcol {
-    padding-left: 100px;
-  }
-
-  .time {
-    font-size: 13px;
-    font-style: italic;
-    text-transform: lowercase;
-    color: $txt-primary;
-  }
+.events .row {
+  display: flex;
+  align-items: stretch;
 }
 
+.events .leftcol {
+  padding-right: 100px;
+  border-right: solid 1px $keyline-color;
+  display: flex;
+  flex-direction: column;
+}
 /* ==========================================================================
 .blog
 ========================================================================== */
