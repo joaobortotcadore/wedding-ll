@@ -774,6 +774,17 @@ Embed video
 #video-content p {
   color: #ffffff;
 }
+.video-popup video {
+  max-height: 90vh !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+}
+.fancybox-inner {
+  overflow: hidden !important;
+  max-height: 95vh !important;
+}
 
 /* ==========================================================================  
    Google Map Responsivo até a borda  
