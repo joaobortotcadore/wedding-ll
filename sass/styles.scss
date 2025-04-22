@@ -553,6 +553,7 @@ Features-stack
 ========================================================================== */
 .events .row {
   display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
 }
 
