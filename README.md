@@ -35,3 +35,7 @@ _See [wedding.rampatra.com](http://wedding.rampatra.com/) for a demo. Use invite
 I have written a 
 [blog post describing all the features of this wedding website](https://blog.rampatra.com/wedding-website) and how to
 customize each of them according to your needs.
+
+# Usefull online tools
+[Photopea](https://www.photopea.com/) - Online Photoshop editor.
+[Flat Icon](https://www.flaticon.com/br/) - Free icons for website.
