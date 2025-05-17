@@ -374,7 +374,7 @@
 
             <div class="col-md-3 col-sm-6 mb-4 text-center">
                 <h4>🏋️ Crossfit</h4>
-                <button class="btn btn-accent btn-small gift-btn" data-gift="Tênis de treino">Tênis de treino (cross)</button><br>
+                <button class="btn btn-accent btn-small gift-btn" data-gift="Braço biônico" data-funny="Treinar é uma atividade de risco (de preferência o direito)">Braço biônico</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Grip">Grip (proteção de mão)</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Joelheira elástica">Joelheira elástica</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Camisa motivacional">Camisa "No Pain No Gain"</button><br>
@@ -413,8 +413,9 @@
 <div id="pixModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content text-center p-3">
-            <h4 id="gift-title" class="mb-2"></h4>
-            <p class="mb-3">Aponte o app do banco para doar via Pix 💜</p>
+            <h3 id="gift-title" class="mb-2" style="font-style: bold;"></h3>
+            <h4 id="funny-description" class="mb-2" style="font-style: italic; color: #555;"></h4> <!-- Descrição engraçada -->
+            <!-- <p class="mb-3">Aponte o app do banco para doar via Pix 💜</p> -->
 
             <img src="img/qrcode-pix.png" alt="QR Code Pix" class="img-responsive center-block"
                 style="max-width: 100%; height: auto;">
@@ -549,12 +550,15 @@
 
     // Modal título dinâmico
     document.querySelectorAll('.gift-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const gift = btn.dataset.gift;
-            document.getElementById('gift-title').textContent = `Presente: ${gift}`;
-            $('#pixModal').modal('show');
-        });
-    });
+       btn.addEventListener('click', () => {
+           const gift = btn.dataset.gift;
+           const funny = btn.dataset.funny || ""; // Verifica se existe a descrição engraçada
+
+           document.getElementById('gift-title').textContent = gift;
+           document.getElementById('funny-description').textContent = funny ? funny : ""; // Exibe a descrição se existir
+           $('#pixModal').modal('show');
+       });
+   });
 </script>
 <!-- Google Analytics -->
 <script>

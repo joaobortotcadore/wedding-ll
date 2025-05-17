@@ -926,3 +926,44 @@ body.modal-open {
 .modal-body {
   padding:25px;
 }
+
+/* Aumenta o tamanho do modal */
+.modal-content {
+  width: 400px; /* Aumenta a largura do modal */
+  max-width: 90%; /* Limita o tamanho máximo em 90% da largura da tela */
+  height: auto;
+  padding: 20px 30px; /* Ajusta o padding para mais espaço interno */
+  border-radius: 12px; /* Mantém o design arredondado */
+}
+
+/* Aumenta o tamanho da imagem do QR Code */
+.modal-content img {
+  max-width: 300px; /* Aumenta o tamanho do QR Code */
+  height: auto;
+  margin: 15px 0;
+}
+
+/* Centraliza o texto e o QR Code */
+.modal-content h4,
+.modal-content p {
+  font-size: 1.4rem; /* Aumenta o tamanho do texto */
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Estiliza o botão de copiar código Pix */
+.modal-content button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+/* Estiliza o botão de fechar */
+.modal-content button[data-dismiss="modal"] {
+  font-size: 1rem;
+  margin-top: 15px;
+  border: 1px solid #000;
+  background: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
