@@ -252,12 +252,11 @@ Hero
 ========================================================================== */
 .hero {
   min-height: 750px;
-  background: url('../img/hero-min.jpg') center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  height: 100vh;
+  background: url('../img/hero-min.png') top center no-repeat;
   background-size: cover;
   position: relative;
+  overflow: hidden;
 
   /*.rsvp-btn {
     position: absolute;
@@ -285,6 +284,15 @@ Hero
     margin-bottom: 12%;
   }
 }
+
+/* Trocar a imagem com os gatinhos embaixo, quando a largura da tela for menor que 768px */
+@media (max-width: 768px) {
+  .hero {
+    background: url('../img/hero-min2.png') top center no-repeat;
+    background-size: cover;
+  }
+}
+
 .navigation {
   transition: all 300ms ease-in-out;
   position: fixed;
