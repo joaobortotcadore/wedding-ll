@@ -16,7 +16,7 @@
     <meta name="theme-color" content="#ffffff">
     <meta property="og:title" content="Casamento Luiz e Laiz">
     <meta property="og:description" content="Gostaríamos de convidá-lo para o nosso grande dia.">
-    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.jpg">
+    <meta property="og:image" content="https://wedding.ramswaroop.me/img/hero-min.png">
     <meta property="og:type" content="website">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -374,7 +374,7 @@
 
             <div class="col-md-3 col-sm-6 mb-4 text-center">
                 <h4>🏋️ Crossfit</h4>
-                <button class="btn btn-accent btn-small gift-btn" data-gift="Braço biônico" data-funny="Treinar é uma atividade de risco (de preferência o direito)">Braço biônico</button><br>
+                <button class="btn btn-accent btn-small gift-btn" data-gift="Braço biônico" data-funny="Treinar é uma atividade de risco\n(de preferência o direito)">Braço biônico</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Grip">Grip (proteção de mão)</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Joelheira elástica">Joelheira elástica</button><br>
                 <button class="btn btn-accent btn-small gift-btn" data-gift="Camisa motivacional">Camisa "No Pain No Gain"</button><br>
@@ -550,15 +550,15 @@
 
     // Modal título dinâmico
     document.querySelectorAll('.gift-btn').forEach(btn => {
-       btn.addEventListener('click', () => {
-           const gift = btn.dataset.gift;
-           const funny = btn.dataset.funny || ""; // Verifica se existe a descrição engraçada
+        btn.addEventListener('click', () => {
+            const gift = btn.dataset.gift;
+            const funny = btn.dataset.funny ? btn.dataset.funny.replace(/\\n/g, '<br>') : ""; // Substitui \n por <br>
 
-           document.getElementById('gift-title').textContent = gift;
-           document.getElementById('funny-description').textContent = funny ? funny : ""; // Exibe a descrição se existir
-           $('#pixModal').modal('show');
-       });
-   });
+            document.getElementById('gift-title').textContent = gift;
+            document.getElementById('funny-description').innerHTML = funny ? funny : ""; // Exibe a descrição se existir
+            $('#pixModal').modal('show');
+        });
+    });
 </script>
 <!-- Google Analytics -->
 <script>
