@@ -1,5 +1,13 @@
 // Colours partial
 
+// Paleta de Cores Personalizada
+$color-primary-1: #769cc1; // 3
+$color-primary-2: #90aac3; // 4
+$color-primary-3: #b9ccdb; // 1
+$color-primary-4: #667f9d; // 5 
+$color-primary-5: #a1bde1; // 2
+$color-primary-6: hsl(214,52%,76%);
+
 // Text colours
 $txt-primary: rgba(28, 54, 83, 0.6);
 // body font
@@ -11,9 +19,11 @@ $txt-accent: #ACB1B4;
 $form-placeholder: #BCC1C3;
 // form placeholder text
 // Global colours
-$accent-color: #e8ca6f;
+// $accent-color: #e8ca6f;
+$accent-color: #769cc1;
 // global accent colour
-$accent-color-hover: #d3b56a;
+// $accent-color-hover: #d3b56a;
+$accent-color-hover: #90aac3;
 // global accent colour hover
 $white-color: #fff;
 $black-color: #000;
