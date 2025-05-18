@@ -967,6 +967,29 @@ body.modal-open {
   margin-top: 10px;
 }
 
+/* Estilo para botões quadrados e do mesmo tamanho */
+.gift-btn {
+    display: inline-block;
+    width: 100%; /* Garantir que todos tenham a mesma largura */
+    max-width: 250px; /* Limite para não ficar exagerado em telas grandes */
+    height: 40px; /* Altura fixa para uniformidade */
+    margin: 2px auto; /* Margem para separar os botões */
+    padding: 0px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-radius: 20px; /* Deixar com leve arredondamento */
+    background-color: #e3e3e3; /* Cor de fundo padrão */
+    color: #333; /* Cor do texto */
+    border: 2px solid #555; /* Borda para destaque */
+    transition: all 0.3s ease;
+}
+
+.gift-btn:hover {
+    background-color: #555;
+    color: #fff;
+    border-color: #333;
+    transform: scale(1.05); /* Efeito leve de zoom ao passar o mouse */
+}
 // /* Estiliza o botão de fechar */
 // .modal-content button[data-dismiss="modal"] {
 //   font-size: 1rem;
