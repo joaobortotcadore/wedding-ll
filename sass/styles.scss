@@ -1025,3 +1025,29 @@ Bootstrap override
     color: #128C7E; /* Verde mais escuro ao passar o mouse */
     text-decoration: underline;
 }
+
+.sobre-o-amor-bg {
+  /* Substitua o caminho pelo seu arquivo real */
+  background-image: url('../img/fundo-sobre-o-amor.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Defina um mínimo de altura para desktop e mobile */
+  min-height: 700px; /* Ajuste conforme necessário */
+  width: 100%;
+  /* Se o fundo está muito forte, use um overlay: */
+  position: relative;
+  z-index: 0;
+}
+.sobre-o-amor-bg::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.8); /* leve branco para contraste do texto */
+  pointer-events: none;
+}
+.sobre-o-amor-bg > * {
+  position: relative;
+  z-index: 2;
+}
