@@ -349,6 +349,10 @@
     </div>
 </div>
 
+<!-- Elemento de áudio oculto -->
+<audio id="pix-audio" src="audio/e-o-pix-nada-ainda.mp3" preload="auto"></audio>
+
+
 <section id="eng-pics" class="section-padding">
     <div class="container-fluid">
       <div class="row">
@@ -473,6 +477,28 @@
             document.getElementById('gift-title').textContent = gift;
             document.getElementById('funny-description').innerHTML = funny ? funny : ""; // Exibe a descrição se existir
             $('#pixModal').modal('show');
+        });
+    });
+</script>
+
+<script>
+    document.querySelectorAll('.gift-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const gift = btn.dataset.gift;
+            const funny = btn.dataset.funny ? btn.dataset.funny.replace(/\\n/g, '<br>') : "";
+
+            document.getElementById('gift-title').textContent = gift;
+            document.getElementById('funny-description').innerHTML = funny ? funny : "";
+            $('#pixModal').modal('show');
+
+            // Definir o intervalo aleatório entre 8 e 15 segundos
+            const delay = Math.random() * (15000 - 8000) + 8000;
+
+            // Configurar para tocar o áudio após o tempo aleatório
+            setTimeout(() => {
+                const audio = document.getElementById("pix-audio");
+                audio.play();
+            }, delay);
         });
     });
 </script>
