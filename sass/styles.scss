@@ -929,42 +929,41 @@ footer {
 /* ==========================================================================
 Bootstrap override
 ========================================================================== */
-body.modal-open {
-  padding-right:0 !important;
-}
-.modal-body {
-  padding:25px;
+/* Ajustando o tamanho do modal para reduzir as bordas */
+.modal-dialog {
+  max-width: 90%; /* Ocupará até 90% da largura da tela */
+  width: auto; /* Ajusta automaticamente o tamanho */
+  margin: 0 auto; /* Centraliza o modal */
+  padding: 0; /* Remove o padding lateral */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Centraliza verticalmente */
 }
 
-/* Aumenta o tamanho do modal */
+/* Reduzindo o padding interno do conteúdo */
 .modal-content {
-  width: 400px; /* Aumenta a largura do modal */
-  max-width: 90%; /* Limita o tamanho máximo em 90% da largura da tela */
-  height: auto;
-  padding: 20px 30px; /* Ajusta o padding para mais espaço interno */
-  border-radius: 12px; /* Mantém o design arredondado */
+  width: auto;
+  max-width: 350px; /* Ajuste o tamanho máximo conforme necessário */
+  padding: 15px 20px; /* Reduz o padding interno */
+  border-radius: 12px; /* Mantém as bordas arredondadas */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
 }
 
-/* Aumenta o tamanho da imagem do QR Code */
-.modal-content img {
-  max-width: 300px; /* Aumenta o tamanho do QR Code */
-  height: auto;
-  margin: 15px 0;
+/* Ajustando o tamanho do QR Code */
+.modal-content img.qr-code-img {
+    max-width: 80%; /* Diminui o tamanho do QR Code */
+    height: auto;
+    margin: 15px auto;
+    display: block;
 }
 
-/* Centraliza o texto e o QR Code */
-.modal-content h4,
-.modal-content p {
-  font-size: 1.4rem; /* Aumenta o tamanho do texto */
-  margin-bottom: 15px;
+/* Ajustando o texto e botões dentro do modal */
+.modal-content h3,
+.modal-content h4 {
+  font-size: 16px; /* Ajuste conforme necessário */
+  margin-bottom: 10px;
   text-align: center;
-}
-
-/* Estiliza o botão de copiar código Pix */
-.modal-content button {
-  font-size: 1rem;
-  padding: 10px 20px;
-  margin-top: 10px;
 }
 
 /* Estilo para botões quadrados e do mesmo tamanho */
@@ -990,12 +989,27 @@ body.modal-open {
     border-color: #333;
     transform: scale(1.05); /* Efeito leve de zoom ao passar o mouse */
 }
-// /* Estiliza o botão de fechar */
-// .modal-content button[data-dismiss="modal"] {
-//   font-size: 1rem;
-//   margin-top: 15px;
-//   border: 1px solid #000;
-//   background: none;
-//   padding: 8px 15px;
-//   border-radius: 8px;
-// }
+
+/* Estilo para botões dentro do modal do Pix */
+.inside-modal-btn {
+    display: inline-block;
+    width: 100%; /* Garantir que todos tenham a mesma largura */
+    max-width: 250px; /* Limite para não ficar exagerado em telas grandes */
+    height: 40px; /* Altura fixa para uniformidade */
+    margin: 2px auto; /* Margem para separar os botões */
+    padding: 0px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-radius: 20px; /* Deixar com leve arredondamento */
+    background-color: #e3e3e3; /* Cor de fundo padrão */
+    color: #333; /* Cor do texto */
+    border: 2px solid #555; /* Borda para destaque */
+    transition: all 0.3s ease;
+}
+
+.inside-modal-btn:hover {
+    background-color: #555;
+    color: #fff;
+    border-color: #333;
+    transform: scale(1.05); /* Efeito leve de zoom ao passar o mouse */
+}
