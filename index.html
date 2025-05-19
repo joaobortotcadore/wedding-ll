@@ -426,24 +426,6 @@
 <script src="js/vendor/ouical.js"></script>
 <script src="js/scripts.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPw3GQYI3faa_9mRE6plWuM7xNEmrwH0&callback=initMap"></script>
-<!-- <script>
-    document.querySelectorAll('.gift-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const gift = btn.dataset.gift;
-            document.getElementById('gift-title').textContent = `Presente: ${gift}`;
-            $('#pixModal').modal('show');
-        });
-    });
-</script>
-<script>
-    function copyPixCode() {
-        const input = document.getElementById("pix-code");
-        input.select();
-        input.setSelectionRange(0, 99999); // compatível com mobile
-        document.execCommand("copy");
-        alert("Código Pix copiado!");
-    }
-</script> -->
 <script>
     // Botão de cópia do código Pix
     document.getElementById('copy-pix-btn').addEventListener('click', function () {
@@ -480,8 +462,10 @@
         });
     });
 </script>
-
+<!-- toca audio entre 8 e 15 segundos apos clicar no botao de presente.. se fechar o modal cancela o audio -->
 <script>
+    let audioTimeout; // Variável para armazenar o temporizador do áudio
+
     document.querySelectorAll('.gift-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const gift = btn.dataset.gift;
@@ -494,14 +478,24 @@
             // Definir o intervalo aleatório entre 8 e 15 segundos
             const delay = Math.random() * (15000 - 8000) + 8000;
 
+            // Cancelar qualquer temporizador anterior
+            clearTimeout(audioTimeout);
+
             // Configurar para tocar o áudio após o tempo aleatório
-            setTimeout(() => {
+            audioTimeout = setTimeout(() => {
                 const audio = document.getElementById("pix-audio");
                 audio.play();
             }, delay);
         });
     });
+
+    // Evento para fechar o modal e cancelar o áudio
+    $('#pixModal').on('hidden.bs.modal', function () {
+        clearTimeout(audioTimeout);
+    });
 </script>
+
+
 <!-- Google Analytics -->
 <script>
     (function (i, s, o, g, r, a, m) {
