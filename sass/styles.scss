@@ -1013,3 +1013,15 @@ Bootstrap override
     border-color: #333;
     transform: scale(1.05); /* Efeito leve de zoom ao passar o mouse */
 }
+
+/* Estilo para os links de WhatsApp */
+.whatsapp-link {
+    text-decoration: none;
+    color: #25D366; /* Verde do WhatsApp */
+    transition: color 0.3s;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E; /* Verde mais escuro ao passar o mouse */
+    text-decoration: underline;
+}
