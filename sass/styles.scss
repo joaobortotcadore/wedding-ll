@@ -1027,27 +1027,54 @@ Bootstrap override
 }
 
 .sobre-o-amor-bg {
-  /* Substitua o caminho pelo seu arquivo real */
-  background-image: url('../img/fundo-sobre-o-amor.png');
+  background-image: url('../img/fundo-sobre-o-amor-1920x1080.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* Defina um mínimo de altura para desktop e mobile */
-  min-height: 700px; /* Ajuste conforme necessário */
   width: 100%;
-  /* Se o fundo está muito forte, use um overlay: */
+  min-height: 700px;
   position: relative;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
 }
+
+/* Overlay de contraste leve */
 .sobre-o-amor-bg::before {
   content: "";
   position: absolute;
   z-index: 1;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255,255,255,0.8); /* leve branco para contraste do texto */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
   pointer-events: none;
 }
+
+/* Conteúdo visível acima do overlay */
 .sobre-o-amor-bg > * {
   position: relative;
   z-index: 2;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* Ajuste para telas menores (mobile) */
+@media (max-width: 768px) {
+  .sobre-o-amor-bg {
+    background-image: url('../img/fundo-sobre-o-amor-1080x1920.png');
+    background-position: center;
+    background-size: cover;
+    min-height: 600px;
+    padding: 15px;
+  }
+
+  .sobre-o-amor-bg::before {
+    background: rgba(255, 255, 255, 0.7); /* Mais opaco para contraste em mobile */
+  }
 }
