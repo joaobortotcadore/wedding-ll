@@ -1064,6 +1064,43 @@ Bootstrap override
   max-width: 90%;
 }
 
+.confirme-sua-presenca-bg {
+  background-image: url('../img/confirme-sua-presenca.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 700px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Overlay de contraste leve */
+.confirme-sua-presenca-bg::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+/* Conteúdo visível acima do overlay */
+.confirme-sua-presenca-bg > * {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 90%;
+}
+
 // /* Ajuste para telas menores (mobile) */
 // @media (max-width: 768px) {
 //   .sobre-o-amor-bg {
