@@ -1110,3 +1110,24 @@ Bootstrap override
   text-align: center;
   max-width: 90%;
 }
+
+.como-chegar-bg {
+  position: relative;
+  padding: 60px 20px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* imagem com opacidade no fundo */
+.como-chegar-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('../img/rosa-dos-ventos.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 180px;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
