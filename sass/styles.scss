@@ -1026,10 +1026,11 @@ Bootstrap override
     text-decoration: underline;
 }
 
+/* Estilo padrão (mobile-first): usa a imagem vertical */
 .sobre-o-amor-bg {
-  background-image: url('../img/sobre-o-amor-bg.png');
+  background-image: url('../img/sobre-o-amor-bg-1080x1920.png');
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   width: 100%;
   min-height: 700px;
@@ -1062,6 +1063,15 @@ Bootstrap override
   z-index: 2;
   text-align: center;
   max-width: 90%;
+}
+
+/* Em telas maiores (desktop), troca para imagem horizontal */
+@media (min-width: 769px) {
+  .sobre-o-amor-bg {
+    background-image: url('../img/sobre-o-amor-bg-1920x1080.png');
+    background-position: center center;
+    min-height: 600px; /* ajuste opcional */
+  }
 }
 
 .confirme-sua-presenca-bg {
@@ -1100,18 +1110,3 @@ Bootstrap override
   text-align: center;
   max-width: 90%;
 }
-
-// /* Ajuste para telas menores (mobile) */
-// @media (max-width: 768px) {
-//   .sobre-o-amor-bg {
-//     background-image: url('../img/fundo-sobre-o-amor-1080x1920.png');
-//     background-position: center;
-//     background-size: cover;
-//     min-height: 600px;
-//     padding: 15px;
-//   }
-
-//   .sobre-o-amor-bg::before {
-//     background: rgba(255, 255, 255, 0.7); /* Mais opaco para contraste em mobile */
-//   }
-// }
