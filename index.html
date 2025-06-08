@@ -510,8 +510,17 @@
 </script>
 <!-- toca audio entre 8 e 15 segundos apos clicar no botao de presente.. se fechar o modal cancela o audio -->
 <script>
-    let audioTimeout; // Variável para armazenar o temporizador do áudio
+    let audioTimeout;
+    const audio = document.getElementById("pix-audio");
 
+    // Função para detectar iOS ou Mac Safari
+    function isIOSorMacSafari() {
+        const ua = window.navigator.userAgent;
+        return /iPad|iPhone|iPod/.test(ua) || 
+               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 0);
+    }
+
+    // Botões de presente
     document.querySelectorAll('.gift-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const gift = btn.dataset.gift;
@@ -521,27 +530,40 @@
             document.getElementById('funny-description').innerHTML = funny ? funny : "";
             $('#pixModal').modal('show');
 
-            // Definir o intervalo aleatório entre 8 e 15 segundos
-            const delay = Math.random() * (15000 - 8000) + 8000;
+            // Primeiro prepara o audio
+            audio.pause();
+            audio.currentTime = 0;
+            audio.load();
 
-            // Cancelar qualquer temporizador anterior
+            // Definir delay aleatório entre 10 e 15 segundos (10000 a 15000 ms)
+            const delay = Math.random() * (15000 - 10000) + 10000;
+
+            // Cancelar qualquer timeout anterior
             clearTimeout(audioTimeout);
 
-            // Configurar para tocar o áudio após o tempo aleatório
-            audioTimeout = setTimeout(() => {
-                const audio = document.getElementById("pix-audio");
-                audio.play();
-            }, delay);
+            // Se for iOS ou Mac Safari, aplica a regra
+            if (isIOSorMacSafari()) {
+                audioTimeout = setTimeout(() => {
+                    audio.play().catch(err => {
+                        console.log("Audio play blocked: ", err);
+                    });
+                }, delay);
+            } else {
+                // Outros navegadores
+                audioTimeout = setTimeout(() => {
+                    audio.play();
+                }, delay);
+            }
         });
     });
 
-    // Evento para fechar o modal e cancelar o áudio
+    // Ao fechar o modal → cancela timeout e para o áudio
     $('#pixModal').on('hidden.bs.modal', function () {
         clearTimeout(audioTimeout);
+        audio.pause();
+        audio.currentTime = 0;
     });
 </script>
-
-
 <!-- Google Analytics -->
 <script>
     (function (i, s, o, g, r, a, m) {
