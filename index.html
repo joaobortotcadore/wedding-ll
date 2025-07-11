@@ -436,6 +436,26 @@
     </div>
 </section> -->
 
+<section id="recados" class="section-padding">
+    <div class="container">
+        <div class="row text-center">
+            <h3 class="header">Deixe seu recado para os noivos 💌</h3>
+            <form id="recadoForm">
+                <input type="text" id="nome" name="nome" maxlength="40" placeholder="Seu nome" required style="margin-top:5px;" /><br><br>
+                <textarea id="mensagem" name="mensagem" rows="4" maxlength="500" placeholder="Escreva seu recado aqui..." required style="width:100%;"></textarea><br>
+                <button class="btn btn-accent btn-small" type="submit" style="margin-top:5px;">Enviar recado</button>
+                <p id="recado-status" style="margin-top:10px;"></p>
+            </form>
+        </div>
+    </div>
+    <div id="recados-aprovados" class="container section-padding">
+        <div class="row text-center">
+            <h3 class="header">Mural dos recados</h3>
+            <div id="lista-recados"></div>
+        </div>
+    </div>
+</section>
+
 <div style="text-align: center; margin-bottom: -150px;">
     <img src="img/black-hawk.png" alt="Black Hawk" style="width: 220px;">
 </div>
@@ -475,6 +495,47 @@
 <script src="js/vendor/ouical.js"></script>
 <script src="js/scripts.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlPw3GQYI3faa_9mRE6plWuM7xNEmrwH0&callback=initMap"></script>
+<script>
+    document.getElementById('recadoForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let status = document.getElementById('recado-status');
+        status.textContent = 'Enviando...';
+        fetch('https://script.google.com/macros/s/AKfycby9tssD9uE_ADC0rsVPYzDtD4o_3NE3BrXAJ4_pEBhBq7iNJ72UsKzE3kK2VlzC4vcfXQ/exec', {
+            method: 'POST',
+            mode: 'no-cors', // ou 'cors' se permitido no script
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                nome: document.getElementById('nome').value,
+                mensagem: document.getElementById('mensagem').value
+            })
+        }).then(() => {
+            status.textContent = 'Recado enviado! (Aguarde aprovação)';
+            document.getElementById('recadoForm').reset();
+        }).catch(() => {
+            status.textContent = 'Erro ao enviar recado 😢';
+        });
+    });
+</script>
+<script>
+    function carregarRecados() {
+        fetch('https://script.google.com/macros/s/AKfycby9tssD9uE_ADC0rsVPYzDtD4o_3NE3BrXAJ4_pEBhBq7iNJ72UsKzE3kK2VlzC4vcfXQ/exec')
+            .then(res => res.json())
+            .then(data => {
+                let html = "";
+                data.forEach(r => {
+                    html += `<div class="recado-box"><b>${r.nome}:</b><br>${r.mensagem}</div><br>`;
+                });
+                document.getElementById('lista-recados').innerHTML = html || '<p>Seja o primeiro a deixar um recado!</p>';
+            })
+            .catch(() => {
+                document.getElementById('lista-recados').innerHTML = '<p>Não foi possível carregar os recados.</p>';
+            });
+    }
+
+    // Chama assim que a página carrega
+    carregarRecados();
+</script>
+
 <script>
     // Botão de cópia do código Pix
     document.getElementById('copy-pix-btn').addEventListener('click', function () {
