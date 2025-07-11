@@ -448,12 +448,12 @@
             </form>
         </div>
     </div>
-    <div id="recados-aprovados" class="container section-padding">
+    <!-- <div id="recados-aprovados" class="container section-padding">
         <div class="row text-center">
             <h3 class="header">Mural dos recados</h3>
             <div id="lista-recados"></div>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <div style="text-align: center; margin-bottom: -150px;">
@@ -509,14 +509,14 @@
                 mensagem: document.getElementById('mensagem').value
             })
         }).then(() => {
-            status.textContent = 'Recado enviado! (Aguarde aprovação)';
+            status.textContent = 'Recado enviado!';
             document.getElementById('recadoForm').reset();
         }).catch(() => {
             status.textContent = 'Erro ao enviar recado 😢';
         });
     });
 </script>
-<script>
+<!-- <script>
     function carregarRecados() {
         fetch('https://script.google.com/macros/s/AKfycby9tssD9uE_ADC0rsVPYzDtD4o_3NE3BrXAJ4_pEBhBq7iNJ72UsKzE3kK2VlzC4vcfXQ/exec')
             .then(res => res.json())
@@ -534,7 +534,7 @@
 
     // Chama assim que a página carrega
     carregarRecados();
-</script>
+</script> -->
 
 <script>
     // Botão de cópia do código Pix
